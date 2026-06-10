@@ -53,4 +53,11 @@ public class CandidateService {
                 .filter(c -> c.getName().toLowerCase().contains(name.toLowerCase()))
                 .collect(Collectors.toList());
     }
+
+    public List<Candidate> searchByEmail(String email) {
+        return candidateRepository.findAll().stream()
+                .filter(c -> c.getEmail().toLowerCase().contains(email.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
 }
