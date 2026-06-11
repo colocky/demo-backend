@@ -43,9 +43,7 @@ public class CandidateService {
     }
 
     public List<Candidate> getCandidatesByFieldOfStudy(String fieldOfStudy) {
-        return candidateRepository.findAll().stream()
-                .filter(c -> c.getFieldOfStudy().equalsIgnoreCase(fieldOfStudy))
-                .collect(Collectors.toList());
+        return candidateRepository.findByFieldOfStudyIgnoreCase(fieldOfStudy);
     }
 
     public List<Candidate> searchByName(String name) {
